@@ -1,15 +1,36 @@
 # main.py
+from game.hall import enter_hall, start_game
 
-from game.hall import enter_hall
-# intro
-def start_game():
-    print(">You slowly regain consciousness, disoriented and surrounded by darkness")
-    print(">As your eyes adjust, you find yourself standing in the grand hall of an old decrepit mansion.")
-    print(">The air is thick with an eerie stillness, broken only by distant creaks and faint whispers.")
-    print(">A chilling sensation runs down your spine as you realize you have no memory of how you got here.")
-    print(">Determined to unravel the mystery surrounding you, you take a deep breath and decide to explore the house.")
+def play_menu():
+    print("Welcome to the Horror Adventure Game!")
+    print("1. Play")
+    print("2. About")
+    print("3. Exit")
 
-    enter_hall()
+def about_menu():
+    print("--------------------------------")
+    print("About the Horror Adventure Game:")
+    print("--------------------------------")
+    print("This is a text-based horror adventure game where you explore a mysterious mansion.")
+    print("Your choices will determine your fate. Good luck!")
+    print("--------------------------------")
 
-if __name__=="__main__":
-    start_game()
+
+def main():
+    while True:
+        play_menu()
+        choice = input("Enter the number of your choice: ")
+
+        if choice == '1':
+            start_game()
+            enter_hall()  # Start the game
+        elif choice == '2':
+            about_menu()  # Display information about the game
+        elif choice == '3':
+            print("Exiting the Horror Adventure Game. Goodbye!")
+            break
+        else:
+            print("Invalid choice. Please enter a valid option.")
+
+if __name__ == "__main__":
+    main()

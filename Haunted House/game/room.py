@@ -25,13 +25,14 @@ class Room:
             print(f"\nYou are back in the {self.name}.")
 
     def list_connected_rooms(self):
-        print("\nFrom here, you can go to:")
+        connected_rooms = []
         for direction, room in self.connected_rooms.items():
-            print(f"- {direction.capitalize()}: {room.name}")
+            connected_rooms.append((direction, room))
+        return connected_rooms
 
-    def move(self, direction):
-        if direction in self.connected_rooms:
-            return self.connected_rooms[direction]
+    def move(self, room):
+        if room in self.connected_rooms.values():
+            return room
         else:
             print("You can't go that way.")
             return self
